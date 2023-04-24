@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HI Surya</title>
+    <link rel="stylesheet" href="style.css" />
+  <!DOCTYPE html>
+  <body>
+      <h1 class="title">HI Surya</h1>
+      <p id="currentTime"></p>
+  </body>
+</html><!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome Page</title>
+  </head>
+  <body>
+    <form id="form" onsubmit="submitForm()">
+      <label for="username">Username:</label>
+      <br>
+      <input type="text" id="username" required>
+      <br>
+      <label for="employee_id">Employee ID:</label>
+      <br>
+      <input type="number" id="employee_id" required>
+      <br>
+      <label for="phone_number">Phone Number:</label>
+      <br>
+      <input type="number" id="phone_number" required>
+      <br>
+      <label for="car_number">Car Number:</label>
+      <br>
+      <input type=" text,number" id="car_number" required >
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <script>
+      var cache = {};
+      function submitForm() {
+        event.preventDefault();
+        var username = document.getElementById("username").value;
+        var employee_id = document.getElementById("employee_id").value;
+        var phone_number = document.getElementById("phone_number").value;
+        var car_number = document.getElementById("car_number").value;
+        cache["username"] = username;
+        cache["employee_id"] = employee_id;
+        cache["phone_number"] = phone_number;
+        cache["car_number"] = car_number;
+
+        localStorage.setItem("username", username);
+        localStorage.setItem("employee_id", employee_id);
+        localStorage.setItem("car_number", car_number);
+
+        var token_number = Math.floor(Math.random() * 1000000);
+        document.getElementById("form").style.display = "none";
+        document.body.innerHTML = "<h1>Welcome " + username + "</h1><br><h2>Your parking token number is: " + token_number + "</h2>";
+      }
+    </script>
+  </body>
+</html>
